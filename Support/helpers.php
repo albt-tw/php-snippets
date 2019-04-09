@@ -1,8 +1,5 @@
 <?php
 
-$helpers = config('app.helpers');
-
-foreach ($helpers as $helperFileName) {
-    $file = __DIR__ . '/Helpers/'. $helperFileName . '.php';
-    file_exists($file) and include($file);
+foreach(glob(__DIR__.'/Helpers/*.php') as $file) {
+    is_file($file) and include($file);
 }
